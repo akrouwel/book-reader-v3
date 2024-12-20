@@ -1,0 +1,28 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-title>Settings</ion-title>
+    <ion-buttons slot="end">
+      <ion-button (click)="parent.modalCtrl.dismiss()">Close</ion-button>
+    </ion-buttons>
+  </ion-toolbar>
+</ion-header>
+<ion-content>
+  <ion-item>
+    <ion-label>Tamanho da Fonte:</ion-label>
+    <ion-button (click)="parent.fontSizeDecrease()">-</ion-button>
+    <span>{{ parent.fontSize }}</span>
+    <ion-button (click)="parent.fontSizeIncrease()">+</ion-button>
+  </ion-item>
+  <ion-item>
+    <ion-label>Velocidade do Texto:</ion-label>
+    <ion-select [(ngModel)]="parent.textSpeed" (ngModelChange)="parent.updateSpeed($event)">
+      <ion-select-option value="30">Super Rápido</ion-select-option>
+      <ion-select-option value="50">Rápido</ion-select-option>
+      <ion-select-option value="80" selected>Normal</ion-select-option>
+      <ion-select-option value="120">Lento</ion-select-option>
+    </ion-select>
+  </ion-item>
+  <ion-item>
+    <ion-button (click)="parent.toggleTheme()">Alternar Tema</ion-button>
+  </ion-item>
+</ion-content>
